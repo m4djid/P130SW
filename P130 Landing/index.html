@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="130.css" media="all" />
+	
+<meta name="author" content="Vivien Wack">
+	<meta name="description" content=" Clubbing, social, easy. ">
+	<meta name="keywords" content="clubing, easy, night, p130, design, night club, social">
+	
+	
+</head>
+<body>
+    <div class="container">
+        <h1>SOON</h1>
+        <p>Clubbing, social, worldwide.  <br/> <br/> <a target="_blank" href="http://www.twitter.com/p130app">Tweet</a>   <br/> <a target="_blank" href="http://www.facebook.com/P130app">Like</a>   </p>
+            </div>
+	<script src="lib/jquery.min.js"></script>
+	<script src="jquery.backstretch.min.js"></script>
+	<script>
+	 
+        var images = [
+            "night1.jpg",
+            "night2.jpg",
+            "night3.jpg",
+          	"night4.jpg"  
+        ];
+        
+                $(images).each(function(){
+           $('<img/>')[0].src = this; 
+        });
+      
+        var index = 0;
+        
+        
+        $.backstretch(images[index], {speed: 500});
+        
+        
+        setInterval(function() {
+            index = (index >= images.length - 1) ? 0 : index + 1;
+            $.backstretch(images[index]);
+        }, 5000);
+    </script>
+</body>
+</html>

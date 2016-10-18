@@ -1,0 +1,67 @@
+body { 
+background-color : black
+}
+
+header{
+	width : 460px;
+	margin : 0 auto 0 auto;
+}
+
+header>nav>ul>li{
+	list-style : none;
+	display : inline-block;
+	margin-left : 80px;
+}
+
+header>nav>ul>li>a{
+	color : white;
+}
+
+#listTweet, #listFlickr{
+	width : 900px;
+	margin : 0 auto 0 auto;
+	color : white;
+}
+
+li.tweet {
+margin : 15px;
+font-family : sans-serif;
+list-style : none;
+width: 400px;
+display : inline-block;
+vertical-align : middle;
+}
+
+li.tweet>div{
+	width : 300px;
+	margin-left : 5px;
+}
+
+li.tweet>img,li.tweet>div{
+	display : inline-block;
+}
+
+li.tweet>img{
+	margin : 5px;
+}
+
+li.tweet>a>img{
+	max-width : 400px;
+}
+
+li.flickr {
+margin : 15px;
+font-family : sans-serif;
+list-style : none;
+width: 250px;
+display : inline-block;
+vertical-align : middle;
+}
+
+li.flickr>a>img{
+	width: 250px;
+}
+
+
+
+/*#images .img{ height: 100px; float: left; }*/

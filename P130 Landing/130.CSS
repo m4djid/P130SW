@@ -1,0 +1,25 @@
+@font-face { 	font-family: "Coco"; 	src: url('Coco-Bold.ttf'); }
+
+
+
+	    body { font-family: Helvetica, Arial, sans-serif; }
+	    .container {
+	        width: 20%;
+	        margin: 20px auto;
+	        background-color: #FFF;
+	        padding: 20px;
+	        text-align: center;
+	    }
+	 	    a{
+		color:#727272;text-decoration:none;
+		
+	}
+	    
+	       h1{font-family: Coco, Arial, sans-serif;
+	       font-size: 1.8em;
+	        }
+				
+	}
+	   
+	    
+	    pre { border: 1px solid #CCC; background-color: #EEE; color: #333; padding: 10px; }

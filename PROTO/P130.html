@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+	<meta charset="UTF-8" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/jquery-1.8.3.js"></script>
+  <title>P130</title>
+  <META HTTP-EQUIV="Refresh" CONTENT="40; URL=P130.html">
+  <script>
+	var $jq = jQuery.noConflict();
+	
+	/**
+		Twitter
+	**/
+	$jq.ajax({
+		url :'http://search.twitter.com/search.json?rpp=20&include_entities=true&callback=?&q=%23SWBelfort',
+		type: 'GET',
+		dataType : 'jsonp',
+		success : function(_tweet){
+			var $listTweet = $jq("#listTweet");
+			$jq.each(_tweet.results, function(key){
+				        var img;
+						var html = '<img class = "t_icon" src="'+ _tweet.results[key].profile_image_url +'"/>';
+						html += '<div class=t_body">' + _tweet.results[key].text+'</div>';
+						/*html += '<p class="p_italics">From: ' + _tweet.results[key].from_user + ' Created: ' + _tweet.results[key].created_at+'</p>';*/
+							if(_tweet.results[key].entities.media){
+								img = '<a href="' + _tweet.results[key].entities.media[0].media_url + ':large">';
+								img += '<img src="' + _tweet.results[key].entities.media[0].media_url + ':large" />';
+								img += '</a>';
+							} else {
+								img = '';
+							}
+						$listTweet.append('<li class="tweet">' +html+ '' + img + '</li>');
+						});
+			}});						
+	/**
+		Flickr
+	**/
+	$jq.getJSON("http://api.flickr.com/services/feeds/groups_pool.gne?jsoncallback=?",
+	{
+    id : '26281555@N00',
+    tagmode: "any",
+    format: "json"
+	},
+	function(_flickr) {
+	var $listFlickr = $jq("#listFlickr");
+	for (i = 0; i < _flickr.items.length; i++){
+					var img='';
+					var html = ''; /*'<div class=t_body">' + _flickr.items[i].description +'</div>';*/
+					/*html += '<p class="p_italics">From: ' + _flickr.items[i].author + ' Created: ' + _flickr.items[i].date_taken +'</p>';*/
+					
+					if(_flickr.items[i].media){
+							img += '<a href="' + _flickr.items[i].link + '">';
+							img += '<img src="' + _flickr.items[i].media.m + '" />';
+							img += '</a>';
+						} else {
+							img = '';
+						}
+					$listFlickr.append('<li class="flickr">' +html+ '' + img + '</li>');
+				}
+			});
+						
+	
+</script>
+</head>
+<body>
+<header>
+	<img src="img/P130.png" alt="Logo P130"/>
+	<nav><ul><li><a href="#listTweet">TWITTER</a></li><li><a href="#listFlickr">FLICKR</a></li></ul></nav>
+</header>
+<div id="listTweet"></div>
+<div id="listFlickr"></div>
+</body>
+</html>
